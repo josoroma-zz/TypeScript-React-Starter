@@ -22,14 +22,10 @@ class Hello extends React.Component<Props, State> {
   render() {
     const { name } = this.props;
 
-    if (this.state.currentEnthusiasm <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
-    }
-
     return (
-      <div className="hello">
-        <div className="greeting">
-          Hello {name + getExclamationMarks(this.state.currentEnthusiasm)}
+      <div className="vote">
+        <div className="label">
+          {`${name} ${getExclamationMarks(this.state.currentEnthusiasm)}`}
         </div>
         <button onClick={this.onDecrement}>-</button>
         <button onClick={this.onIncrement}>+</button>
@@ -38,12 +34,14 @@ class Hello extends React.Component<Props, State> {
   }
 
   updateEnthusiasm(currentEnthusiasm: number) {
-    this.setState({ currentEnthusiasm });
+    if (currentEnthusiasm > 0 && currentEnthusiasm < 6) {
+      this.setState({ currentEnthusiasm });
+    }
   }
 }
 
 export default Hello;
 
 function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
+  return Array(numChars + 1).join('$');
 }

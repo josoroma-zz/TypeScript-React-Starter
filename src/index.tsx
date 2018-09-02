@@ -10,7 +10,7 @@ import Hello from './components/Hello';
  * Entry-point.
  */
 ReactDOM.render(
-  <Hello name="TypeScript" enthusiasmLevel={10} />,
+  <Hello name="Vote" enthusiasmLevel={3} />,
   document.getElementById('root') as HTMLElement
 );
 
