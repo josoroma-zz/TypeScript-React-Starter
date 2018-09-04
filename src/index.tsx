@@ -4,34 +4,29 @@ import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import registerServiceWorker from './registerServiceWorker';
-
 import './index.css';
 
-import { EnthusiasmAction } from './actions/index';
-import { enthusiasm } from './reducers/index';
-import { StoreState } from './types/index';
+import { StoreState } from './models/StoreState';
 
-// import App from './App';
-import Hello from './containers/Hello';
+import { VotesAction } from './redux/actions/index';
+import { VotesReducer } from './redux/reducers/index';
 
-const store = createStore<StoreState, EnthusiasmAction, any, any>(
-  enthusiasm,
+import Votes from './containers/Votes';
+
+const store = createStore<StoreState, VotesAction, any, any>(
+  VotesReducer,
   {
-    enthusiasmLevel: 1,
-    name: 'TypeScript'
+    count: 1,
+    name: 'Votes'
   }
 );
-
 
 /**
  * Entry-point.
  */
 ReactDOM.render(
   <Provider store={store}>
-    <Hello />
+    <Votes />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
-
-registerServiceWorker();

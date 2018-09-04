@@ -3,6 +3,6 @@
  */
 
 export interface StoreState {
+  count: number;
   name: string;
-  enthusiasmLevel: number;
 }

@@ -1,5 +1,7 @@
 # TypeScript with React
 
+- https://reactjs.org/docs/static-type-checking.html#using-typescript-with-create-react-app
+
 - https://github.com/Microsoft/TypeScript-React-Starter
 
 - https://reactjs.org/docs/static-type-checking.html
